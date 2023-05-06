@@ -34,9 +34,9 @@ public:
 		: name(n), icon(i), x(px), y(py), nItem(0) ,nEnergy(100){}			//멤버 초기화 리스트를 이용하여 에너지 초기화
 	~Monster() { cout << "\t" << name << icon << " 물러갑니다~~~\n"; }
 
-	int getEnergy(int Monster[5])
+	int getEnergy() const 
 	{
-		return Monster[5];
+		return nEnergy;
 	}
 
 	void draw(Canvas& canvas) { canvas.draw(x, y, icon); }

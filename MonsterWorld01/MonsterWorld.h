@@ -10,6 +10,7 @@ class MonsterWorld {
 	int xMax, yMax, nMon, nMove;
 	Monster* pMon[MAXMONS];
 	Canvas	canvas;
+	Monster** pMon;  // 동적으로 할당된 몬스터 객체를 가리키는 포인터 배열
 
 	int& Map(int x, int y) { return world.elem(x, y); }
 	bool isDone() { return countItems() == 0; }
@@ -50,13 +51,19 @@ public:
 			delete pMon[i];
 	}
 	Monster obj;
-	void checkstarvation(int A)
+	void MonsterWorld::checkStarvation()
 	{
-		if (obj.getEnergy(A) == 0)
+		for (int i = 0; i < nMon; i++) 
 		{
-			cout << "Monster 하나가 굶어죽습니다." << endl;
-			nMon--;
-			delete pMon[0];
+			if (pMon[i]->getEnergy() == 0) 
+			{
+				delete pMon[i];
+				pMon[i] = pMon[nMon - 1];
+				pMon[nMon - 1] = nullptr;
+				nMon--;
+				i--;
+				cout << "Monster 하나가 굶어죽습니다." << endl;
+			}
 		}
 	}
 	void add(Monster* m) {
@@ -73,14 +80,8 @@ public:
 			for (int k = 0; k < nMon; k++)
 			{
 				pMon[k]->move(world.Data(), xMax, yMax);
-				if (obj.getEnergy(pMon[k][5]) == 0)
-				{
-					cout << "Monster 하나가 굶어죽습니다." << endl;
-					nMon--;
-					pMon[k] == pMon[nMon];
-					delete pMon[nMon];
-				}
 			}
+			checkStarvation();
 			nMove++;
 			print();
 			cout << "전체 몬스터의 수" << nMon << endl;
