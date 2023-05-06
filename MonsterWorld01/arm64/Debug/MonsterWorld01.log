@@ -1,0 +1,10 @@
+﻿  MonsterWorld.cpp
+C:\Users\mymac\source\repos\MonsterWorld01\MonsterWorld.h(55,10): error C2664: 'int Monster::getEnergy(int [])': 인수 1을(를) 'int'에서 'int []'(으)로 변환할 수 없습니다.
+C:\Users\mymac\source\repos\MonsterWorld01\MonsterWorld.h(55,21): message : 정수 계열 형식에서 포인터 형식으로 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 괄호가 있는 함수 스타일 캐스트가 필요합니다.
+C:\Users\mymac\source\repos\MonsterWorld01\Monster.h(37,6): message : 'Monster::getEnergy' 선언을 참조하십시오.
+C:\Users\mymac\source\repos\MonsterWorld01\MonsterWorld.h(55,10): message : 인수 목록 '(int)'을(를) 일치시키는 동안
+C:\Users\mymac\source\repos\MonsterWorld01\MonsterWorld.h(76,12): error C2664: 'int Monster::getEnergy(int [])': 인수 1을(를) 'Monster'에서 'int []'(으)로 변환할 수 없습니다.
+C:\Users\mymac\source\repos\MonsterWorld01\MonsterWorld.h(76,32): message : 이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+C:\Users\mymac\source\repos\MonsterWorld01\Monster.h(37,6): message : 'Monster::getEnergy' 선언을 참조하십시오.
+C:\Users\mymac\source\repos\MonsterWorld01\MonsterWorld.h(76,12): message : 인수 목록 '(Monster)'을(를) 일치시키는 동안
+C:\Users\mymac\source\repos\MonsterWorld01\MonsterWorld.h(80,14): warning C4553: '==': 식의 결과가 사용되지 않습니다. '='을(를) 의도했습니까?
